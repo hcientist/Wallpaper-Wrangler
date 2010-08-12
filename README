@@ -1,0 +1,2 @@
+To run this from the command line (the only option we support right now) enter something like the following:
+python wallpaper_wrangler.py 1920 1080 3 2 1 1 input.jpg output.jpg

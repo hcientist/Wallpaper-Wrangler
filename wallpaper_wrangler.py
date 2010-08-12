@@ -23,8 +23,6 @@ def wrangleWallpaper():
 	priX = int(sys.argv[5])		#1
 	priY = int(sys.argv[6])		#1
 	
-	print xRes, yRes, length, height, priX, priY
-	
 	img = Image.open(sys.argv[7])
 	outputImg = Image.new("RGB",(length*xRes,height*yRes))
 	
@@ -45,4 +43,4 @@ def wrangleWallpaper():
 	outputImg.save(sys.argv[8])
 	
 if __name__ == "__main__":
-	run()
+	wrangleWallpaper()
