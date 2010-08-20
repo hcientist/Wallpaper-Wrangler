@@ -1,2 +1,11 @@
 To run this from the command line (the only option we support right now) enter something like the following:
 python wallpaper_wrangler.py 1920 1080 3 2 1 1 input.jpg output.jpg
+the arguments in order are:
+the horizontal resolution of one monitor (1920)
+the vertical resolution of one monitor (1080), 
+the number of monitors comprising the horizontal dimension of your large display (3), 
+the number of monitors comprising the vertical dimension of your large display (2),
+the zero-based x coordinate of your primary monitor, where origin is considered to be the top left monitor (1),
+the zero-based y coordinate of your primary monitor, where origin is considered to be the top left monitor (1),
+the image that needs wrangling (to prevent the mangling),
+the filename to which to write the wrangled image
