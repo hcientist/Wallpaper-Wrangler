@@ -8,4 +8,4 @@ the number of monitors comprising the vertical dimension of your large display (
 the zero-based x coordinate of your primary monitor, where origin is considered to be the top left monitor (1),
 the zero-based y coordinate of your primary monitor, where origin is considered to be the top left monitor (1),
 the image that needs wrangling (to prevent the mangling),
-the filename to which to write the wrangled image
+the filename to which to write the wrangled image.
