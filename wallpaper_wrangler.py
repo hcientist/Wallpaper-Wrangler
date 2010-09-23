@@ -18,28 +18,23 @@ left and down, wrapping back to the other side of the display as necessary.
 def wrangleWallpaper():
 	xRes = int(sys.argv[1]) 	#1920
 	yRes = int(sys.argv[2]) 	#1080
-	length = int(sys.argv[3])		#3
-	height = int(sys.argv[4])		#2
+	length = int(sys.argv[3])	#3
+	height = int(sys.argv[4])	#2
 	priX = int(sys.argv[5])		#1
 	priY = int(sys.argv[6])		#1
 	
 	img = Image.open(sys.argv[7])
 	outputImg = Image.new("RGB",(length*xRes,height*yRes))
 	
-	monMat = []
-	#first store off the regions of the image in order
+	#figure out what belongs in the image's top left and put it there
 	for i in xrange(height):
-		li = []
 		for j in xrange(length):
-			box = (j*xRes, i*yRes, (j+1)*xRes, (i+1)*yRes)
-			li.append ((img.crop(box),box))
-		monMat.append (li)
+			source = (j*xRes, i*yRes, (j+1)*xRes, (i+1)*yRes)
+			tlx = (((length-priX)+j)%length)*xRes
+			tly = (((height-priY)+i)%height)*yRes
+			dest = (tlx, tly, tlx+xRes, tly+yRes)
+			outputImg.paste(img.crop(source), dest)
 			
-	#next select the image that belongs in the top left of the scrambled image,
-	#then it's right neighbor, and etc.
-	for i in xrange(height):
-		for j in xrange(length):
-			outputImg.paste(monMat[(i+priY)%height][(j+priX)%length][0], monMat[i][j][1])
 	outputImg.save(sys.argv[8])
 	
 if __name__ == "__main__":
